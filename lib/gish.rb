@@ -19,6 +19,18 @@ module Gish
     @github ||= Octokit::Client.new(:access_token => Gish.access_token)
   end
 
+  def self.request
+    begin
+      yield()
+    rescue Octokit::NotFound
+      puts "Could not find matching entry."
+      exit 1
+    rescue Octokit::Unauthorized
+      puts "Something is wrong with your personal access token."
+      exit 1
+    end    
+  end
+
   extend Gish::Commands::Label
   extend Gish::Commands::Issue
   extend Gish::Commands::Comment
