@@ -20,7 +20,8 @@ module Gish
     def headline
       user = @user.ljust(20, ' ')
       title = short_title.ljust(70, ' ') 
-      "##{@number} #{bold(user)} #{title} [#{@comment_count}]"
+      number = @number.ljust(5, ' ')
+      "##{number} #{bold(user)} #{title} [#{@comment_count}]"
     end
 
     def to_s
