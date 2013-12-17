@@ -37,7 +37,18 @@ Here are some examples to get you started.
 |gish close 1| Close issue #1|
 |gish label 1 `such-feature`| Add the label `such-feature` to issue #1|
 
+When listing issues, the number of comments on an issue will be displayed at the end of a line.  Noone has commented on these yet, so… well they are '0'.
 
+```
+#9 barisbalic           Emoji!                                                                 [0]
+#8 barisbalic           Fix editor input for open command                                      [0]
+#7 barisbalic           Support API paging                                                     [0]
+#6 barisbalic           Current repository check is lame                                       [0]
+#5 barisbalic           Format issue and comment times                                         [0]
+#4 barisbalic           Enhance terminal output                                                [0]
+#2 barisbalic           Check issue assignee                                                   [0]
+#1 barisbalic           Add config subcommand                                                  [0]
+```
 
 
 
