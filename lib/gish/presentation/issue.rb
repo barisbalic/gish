@@ -1,9 +1,7 @@
 module Gish
   class Issue
     include TerminalHelpers
-
-    attr_reader :url, :number, :state, :title, :body
-
+    
     def initialize(github_issue)
       @url = github_issue.html_url
       @number = github_issue.number.to_s
