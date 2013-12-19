@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module Gish
   module InputHelpers
     def prompt(message)
@@ -11,7 +13,7 @@ module Gish
     end
 
     def capture_editor_input(content=nil)
-      unique_file = "/tmp/#{random_filename}"
+      unique_file = "/tmp/#{SecureRandom.hex}"
       File.open(unique_file, 'w+'){|f| f.write(content) }
 
       command = "#{Gish.editor} #{unique_file} < `tty` > `tty`"
@@ -20,10 +22,6 @@ module Gish
       
       File.delete(unique_file)
       ouput.length < 1 ? nil : ouput
-    end
-
-    def random_filename
-      (0...10).map { (65 + rand(26)).chr }.join
     end
   end
 end
