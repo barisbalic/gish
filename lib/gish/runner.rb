@@ -8,13 +8,15 @@ module Gish
     no_tasks do
       include InputHelpers
     end
-    
-    desc 'assignees', 'List assignees for this repository.'
-    def assignees
-      puts Gish.list_assignees
-    end
 
-    desc 'labels SUBCOMMAND ...ARGS', 'Manage labels for this repository.'
+    class_option :repository, :type=> :string , :aliases => '-r', :desc => 'Specify the repository.'
+    def initialize(*args)
+      super
+      return unless options.repository? && options.repository != 'repository'
+      Gish.repository = options.repository
+    end
+    
+    desc 'labels SUBCOMMAND ...ARGS', 'Manage labels for the repository.'
     subcommand 'labels', Gish::Cli::Labels
 
     desc 'label ISSUE_NUMBER LABEL [LABEL]...', 'Add one or more labels to an issue.'
@@ -41,14 +43,14 @@ module Gish
     desc 'list [COUNT]', 'List issues.'
     method_option :closed, :type => :boolean, :aliases => '-c', :desc => 'Show closed issues.'
     method_option :order, :type => :string, :aliases => '-o', :desc => 'Ordering by asc or desc.'
-    def list(count=10)
+    def list(count=20)
       args = {:per_page => count}
       args[:state] = 'closed' if options.closed?
       args[:direction] = 'asc' if options.order == 'asc' 
       puts Gish.list(args)
     end
 
-    desc 'show ISSUE_NUMBER', 'Display the full issue content.'
+    desc 'show ISSUE_NUMBER', 'Display the issue in full.'
     method_option :include_comments, :type => :boolean, :aliases => '-i', :desc => 'Include comments.'
     def show(issue_number)
       puts Gish.show(issue_number)
@@ -75,6 +77,11 @@ module Gish
     desc 'browse [ISSUE_NUMBER]', 'View issues in your browser.'
     def browse(issue_number=nil)
       Gish.browse(issue_number)
+    end
+
+    desc 'assignees', 'List assignees for the repository.'
+    def assignees
+      puts Gish.list_assignees
     end
 
     desc 'assign ISSUE_NUMBER USER_LOGIN', 'Assign an issue to a user.'

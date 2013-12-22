@@ -3,7 +3,7 @@ require 'octokit'
 module Gish
   module Configuration
     include InputHelpers
-    attr_accessor :editor, :access_token, :repository, :browser, :github_url, :config_file
+    attr_accessor :editor, :access_token, :repository, :browser
 
     def self.extended(base)
       base.defaults
@@ -25,36 +25,27 @@ module Gish
       @browser = browser
     end
 
-    def github_url=(url)
-      @github_url = url
-    end
-
-    def config_file=(filename)
-      @config_file = File.expand_path(filename)
+    def github_url
+      "http://github.com/#{@repository}"
     end
 
     def defaults
-      self.config_file = '~/.gish'
+      @config_file = File.expand_path('~/.gish')
       self.editor = (ENV['GISH_EDITOR'] || ENV['EDITOR']) || 'vi'
       self.browser = (ENV['GISH_BROWSER'] || ENV['BROWSER']) || 'open'
-      self.repository = current_repository
-      self.github_url = current_github_url
+      self.repository = default_repository
       self.access_token = retrieve_or_generate_token
     end
 
     private 
 
-    def current_repository
+    def default_repository
       url = %x(git config --get remote.origin.url)
-      url.match(/:(.*).git/)[1]
-    end
-
-    def current_github_url
-      "http://github.com/#{current_repository}"
+      url.match(/:(.*)\.git/)[1]
     end
 
     def retrieve_or_generate_token
-      return File.read(config_file) if File.exists?(config_file)
+      return File.read(@config_file) if File.exists?(@config_file)
 
       puts "(step 1 of 2) Gish needs your login details to create a personal use token.  This only happens once and your credentials will not be stored."
       username = prompt('Username: ')
@@ -71,7 +62,7 @@ module Gish
       options.merge!({:scopes => ['repo']}) if private_access
       authorization = github.create_authorization(options)
 
-      File.open(config_file, 'w+') { |file| file.write(authorization.token) }
+      File.open(@config_file, 'w+') { |file| file.write(authorization.token) }
     end
   end
 end
