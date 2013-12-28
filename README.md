@@ -4,7 +4,9 @@ Github Issues on the command-line.  Not much else to say about it.  Runs on OSX/
 
 ## Installation
 
+```bash
   $ gem install gish
+```
 
 When you first use Gish you will be prompted for your github credentials, and asked if you would like to use Gish with private repositories.  This information is used to create a [personal access token](https://github.com/blog/1509-personal-api-tokens) for your Github account, this token will then be stored and used instead of your credentials.
 
