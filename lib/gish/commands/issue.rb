@@ -25,7 +25,7 @@ module Gish
         request { client.close_issue(Gish.repository, issue_number)}
       end
 
-      def issue_comments(issue_number)
+      def comments(issue_number)
         comments = request { client.issue_comments(Gish.repository, issue_number) }
         comments.map {|c| Gish::Comment.new(c) }
       end

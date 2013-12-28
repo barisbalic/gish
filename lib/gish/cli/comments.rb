@@ -7,7 +7,7 @@ module Gish
 
       desc 'list ISSUE_NUMBER', 'List all comments for the issue.'
       def list(issue_number)
-        puts Gish.issue_comments(issue_number)
+        puts Gish.comments(issue_number)
       end
       
       desc 'update COMMENT_NUMBER', 'Update a comment.'

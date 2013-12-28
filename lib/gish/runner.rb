@@ -33,7 +33,7 @@ module Gish
     subcommand 'comments', Gish::Cli::Comments
 
     desc 'comment ISSUE_NUMBER', 'Comment on an issue.'
-    method_option :message, :aliases => '-m', :type => :string, :desc => 'Specify the message inline.'
+    method_option :message, :type => :string, :aliases => '-m', :desc => 'Specify the message inline.'
     def comment(issue_number)
       message = capture_editor_input unless options.message? || options.message == 'message'
       message ||= options.message
@@ -55,7 +55,7 @@ module Gish
     def show(issue_number)
       puts Gish.show(issue_number)
       puts "\n"
-      puts Gish.issue_comments(issue_number) if options.include_comments?
+      puts Gish.comments(issue_number) if options.include_comments?
     end
 
     desc 'close ISSUE_NUMBER', 'Close an issue.'
@@ -97,7 +97,7 @@ module Gish
     desc 'open TITLE', 'Open a new issue.'
     method_option :labels, :type => :array, :aliases => '-l', :desc => 'Add labels.'
     method_option :assignee, :type => :string, :aliases => '-a', :desc => 'Assign someone to the issue.'
-    method_option :message, :aliases => '-m', :desc => 'Specify the message inline.'
+    method_option :message, :type => :string, :aliases => '-m', :desc => 'Specify the message inline.'
     def open(title)
       labels = (options.labels || []).map{|l| l.strip }
       message = capture_editor_input unless options.message? && options.message != 'message'

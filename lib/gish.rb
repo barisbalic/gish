@@ -15,15 +15,14 @@ module Gish
   extend Configuration
 
   def self.client
-    # TODO: Handle auth errors here?
     @github ||= Octokit::Client.new(:access_token => Gish.access_token)
   end
 
-  def self.request
+  def self.request(resource='issue/comment/label')
     begin
       yield()
     rescue Octokit::NotFound
-      puts "Could not find matching entry."
+      puts "Could not find #{resource}."
       exit 1
     rescue Octokit::Unauthorized
       puts "Something is wrong with your personal access token."
