@@ -16,7 +16,7 @@ Why 'open'? Because I'm an OSX user and there's no *nix analogue as far as I can
   
 Gish has too many commands, subcommands and options to list here, thankfully it's uses the excellent [thor](http://whatisthor.com/) under the hood so you can use the help command like so to see your options...
 
-```Bash
+```bash
   $ gish help
   $ gish subcommand help
 ```
@@ -25,7 +25,7 @@ Some commands may allow for excessive input, namely opening and commenting on is
 
 Oh, one more thing!  Gish expects you to be running against the repository under the origin remote, if you want to override this, use -r/--repository, like so:
 
-```shell
+```bash
   $ gish list -r andrew/24pullrequests
 ``` 
 
@@ -62,8 +62,12 @@ When listing issues, the number of comments on an issue will be displayed at the
 
 Contributions are very welcome, whether it's refactoring or taking care of the [issues](http://github.com/gish/issues).
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Fork the repo.
+2. create your branch `git checkout -b branch-name` **bonus for feature branches**
+3. Make your changes
+4. Test to make sure you have not broken any existing functionality
+4. Commit your changes
+5. Push to your branch
+6. Submit a pull request
+
+We will do our best to merge your PR or provide feedback as soon as possible!
