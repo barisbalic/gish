@@ -1,6 +1,6 @@
 # Gish
 
-Github Issues on the command-line.  Not much else to say about it.
+Github Issues on the command-line.  Not much else to say about it.  Runs on OSX/*nix, any Windows compatibility is purely coincidental.
 
 ## Installation
 
