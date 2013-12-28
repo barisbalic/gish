@@ -62,7 +62,7 @@ When listing issues, the number of comments on an issue will be displayed at the
 
 ## Contributing
 
-Contributions are very welcome, whether it's refactoring or taking care of the [issues](http://github.com/gish/issues).
+Contributions are very welcome, whether it's refactoring or taking care of the [issues](http://github.com/barisbalic/gish/issues).
 
 1. Fork the repo.
 2. Create your branch `git checkout -b branch-name` **bonus for feature branches**

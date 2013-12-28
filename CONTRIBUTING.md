@@ -1,4 +1,4 @@
-Contributions are very welcome, whether it's refactoring or taking care of the [issues](http://github.com/gish/issues).
+Contributions are very welcome, whether it's refactoring or taking care of the [issues](http://github.com/barisbalic/gish/issues).
 
 Quick guide to contributing:
 
