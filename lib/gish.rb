@@ -1,6 +1,7 @@
 require "gish/version"
 require "gish/helpers/input_helpers"
 require "gish/helpers/terminal_helpers"
+require "gish/helpers/date_helpers"
 require "gish/configuration"
 require "gish/commands/issue"
 require "gish/commands/comment"
