@@ -37,7 +37,7 @@ Here are some examples to get you started.
 
 |command|outcome|
 |-------|-------|
-|gish list | List 20 issues|
+|gish list | List 20 issues (default count) |
 |gish show 1 | Show issue #1|
 |gish show 1 -i| Show issue #1 and include comments|
 |gish comment 1 -m ":+1"| Comment on issue #1|
@@ -45,10 +45,10 @@ Here are some examples to get you started.
 |gish close 1| Close issue #1|
 |gish label 1 such-feature| Add the label such-feature to issue #1|
 
-When listing issues, the number of comments on an issue will be displayed at the end of a line.
+When listing issues, the number of comments on an issue will be displayed at the end of a line, along with a tag indicating if the issue is a pull request.
 
 ```
-#9 barisbalic           Emoji!                                                                 [2]
+#9 barisbalic           Emoji!                                                            [PR] [2]
 #8 barisbalic           Fix editor input for open command                                      [0]
 #7 barisbalic           Support API paging                                                     [0]
 #6 barisbalic           Current repository check is lame                                       [1]
