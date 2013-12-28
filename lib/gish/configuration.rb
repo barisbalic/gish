@@ -31,17 +31,17 @@ module Gish
 
     def defaults
       @config_file = File.expand_path('~/.gish')
+      self.access_token = retrieve_or_generate_token
       self.editor = (ENV['GISH_EDITOR'] || ENV['EDITOR']) || 'vi'
       self.browser = (ENV['GISH_BROWSER'] || ENV['BROWSER']) || 'open'
       self.repository = default_repository
-      self.access_token = retrieve_or_generate_token
     end
 
     private 
 
     def default_repository
       url = %x(git config --get remote.origin.url)
-      url.match(/:(.*)\.git/)[1]
+      url.match(/:(.*)\.git/)[1] rescue ''
     end
 
     def retrieve_or_generate_token
