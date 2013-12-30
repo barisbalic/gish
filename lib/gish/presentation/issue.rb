@@ -11,7 +11,7 @@ module Gish
       @body = github_issue.body
       @labels = github_issue.labels
       @user = github_issue.user.login
-      @comment_count = github_issue.comments
+      @comment_count = github_issue.comments.to_s.rjust(3, ' ')
       @assignee = github_issue.assignee.login rescue nil
       @created_at = time_in_words(github_issue.created_at)
       @pull_request = !github_issue.pull_request.rels.keys.empty?
@@ -22,7 +22,7 @@ module Gish
       title = short_title.ljust(70, ' ')
       number = @number.ljust(5, ' ')
       type = @pull_request ? '[PR]' : '    '
-      "##{number} #{bold(user)} #{title} #{bold(type)} [#{@comment_count}]"
+      "##{number}  #{bold(user)}  #{title}  #{bold(type)} #{@comment_count} comments"
     end
 
     def to_s

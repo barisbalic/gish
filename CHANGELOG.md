@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.9.3
+
+* Changed output formatting for the list command.
+
 ## 0.9.2
 
 * Express issue/comment creation times in time passed rather than as a date.  Thanks to [despo](https://github.com/despo).
