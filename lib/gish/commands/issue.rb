@@ -21,6 +21,10 @@ module Gish
         request { client.create_issue(Gish.repository, title, body, options) }
       end
 
+      def edit(issue_number, title, body)
+        request { client.update_issue(Gish.repository, issue_number, title, body, {}) }
+      end
+
       def close(issue_number, comment=nil)
         request { client.close_issue(Gish.repository, issue_number)}
       end
@@ -45,7 +49,7 @@ module Gish
         labels.each do |l|
           request { client.remove_label(Gish.repository, issue_number, l.strip) }
         end
-      end      
+      end
 
       def assign(issue_number, user_login)
         options = {:assignee => user_login}

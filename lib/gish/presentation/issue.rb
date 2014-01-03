@@ -3,6 +3,8 @@ module Gish
     include TerminalHelpers
     include DateHelpers
 
+    attr_accessor :title, :body
+
     def initialize(github_issue)
       @url = github_issue.html_url
       @number = github_issue.number.to_s

@@ -15,7 +15,7 @@ module Gish
       return unless options.repository? && options.repository != 'repository'
       Gish.repository = options.repository
     end
-    
+
     desc 'labels SUBCOMMAND ...ARGS', 'Manage labels for the repository.'
     subcommand 'labels', Gish::Cli::Labels
 
@@ -46,7 +46,7 @@ module Gish
     def list(count=20)
       args = {:per_page => count}
       args[:state] = 'closed' if options.closed?
-      args[:direction] = 'asc' if options.order == 'asc' 
+      args[:direction] = 'asc' if options.order == 'asc'
       puts Gish.list(args)
     end
 
@@ -104,6 +104,16 @@ module Gish
       message ||= options.message
       assignee = options.assignee
       Gish.create(title, message, labels, assignee)
+    end
+
+    desc 'edit ISSUE_NUMBER', 'Edit an issue.'
+    method_option :title, :type => :string, :aliases => '-t', :desc => 'Specify the new title'
+    def edit(issue_number)
+      issue = Gish.show(issue_number)
+      message = capture_editor_input(issue.body)
+      title = options.title unless options.nil? and options.title.nil?
+      title ||= issue.title
+      Gish.edit(issue_number, title, message)
     end
 
     desc 'version', 'Display the version of Gish.'
