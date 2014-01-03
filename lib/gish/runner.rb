@@ -15,7 +15,7 @@ module Gish
       return unless options.repository? && options.repository != 'repository'
       Gish.repository = options.repository
     end
-    
+
     desc 'labels SUBCOMMAND ...ARGS', 'Manage labels for the repository.'
     subcommand 'labels', Gish::Cli::Labels
 
@@ -46,7 +46,7 @@ module Gish
     def list(count=20)
       args = {:per_page => count}
       args[:state] = 'closed' if options.closed?
-      args[:direction] = 'asc' if options.order == 'asc' 
+      args[:direction] = 'asc' if options.order == 'asc'
       puts Gish.list(args)
     end
 
@@ -86,7 +86,9 @@ module Gish
 
     desc 'assign ISSUE_NUMBER USER_LOGIN', 'Assign an issue to a user.'
     def assign(issue_number, user_login)
-      Gish.assign(issue_number, user_login)
+      return Gish.assign(issue_number, user_login) if Gish.is_collaborator?(user_login)
+
+      puts "#{user_login} is not a collaborator on #{Gish.repository}"
     end
 
     desc 'unassign ISSUE_NUMBER', 'Unassign an issue.'

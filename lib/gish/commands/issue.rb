@@ -45,7 +45,7 @@ module Gish
         labels.each do |l|
           request { client.remove_label(Gish.repository, issue_number, l.strip) }
         end
-      end      
+      end
 
       def assign(issue_number, user_login)
         options = {:assignee => user_login}
