@@ -86,7 +86,9 @@ module Gish
 
     desc 'assign ISSUE_NUMBER USER_LOGIN', 'Assign an issue to a user.'
     def assign(issue_number, user_login)
-      Gish.assign(issue_number, user_login)
+      return Gish.assign(issue_number, user_login) if Gish.is_collaborator?(user_login)
+
+      puts "#{user_login} is not a collaborator on #{Gish.repository}"
     end
 
     desc 'unassign ISSUE_NUMBER', 'Unassign an issue.'

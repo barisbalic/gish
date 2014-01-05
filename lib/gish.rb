@@ -7,6 +7,7 @@ require "gish/commands/issue"
 require "gish/commands/comment"
 require "gish/commands/label"
 require "gish/commands/assignee"
+require "gish/commands/repository"
 require "gish/presentation/issue"
 require "gish/presentation/label"
 require "gish/presentation/comment"
@@ -28,11 +29,12 @@ module Gish
     rescue Octokit::Unauthorized
       puts "Something is wrong with your personal access token."
       exit 1
-    end    
+    end
   end
 
   extend Gish::Commands::Label
   extend Gish::Commands::Issue
   extend Gish::Commands::Comment
   extend Gish::Commands::Assignee
+  extend Gish::Commands::Repository
 end
