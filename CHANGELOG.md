@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.9.4
+
+* Edit command added, and assign command now checks to see if specified user is a collaborator. Both thanks to [despo](https://github.com/despo).
+
 ## 0.9.3
 
 * Changed output formatting for the list command.

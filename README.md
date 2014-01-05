@@ -48,14 +48,14 @@ Here are some examples to get you started.
 When listing issues, the number of comments on an issue will be displayed at the end of a line, along with a tag indicating if the issue is a pull request.
 
 ```
-#9 barisbalic           Emoji!                                                            [PR] [2]
-#8 barisbalic           Fix editor input for open command                                      [0]
-#7 barisbalic           Support API paging                                                     [0]
-#6 barisbalic           Current repository check is lame                                       [1]
-#5 barisbalic           Format issue and comment times                                         [0]
-#4 barisbalic           Enhance terminal output                                                [0]
-#2 barisbalic           Check issue assignee                                                   [0]
-#1 barisbalic           Add config subcommand                                                  [0]
+#9 barisbalic           Emoji!                                                            [PR] 2 comments
+#8 barisbalic           Fix editor input for open command                                      0 comments
+#7 barisbalic           Support API paging                                                     0 comments
+#6 barisbalic           Current repository check is lame                                       1 comments
+#5 barisbalic           Format issue and comment times                                         0 comments
+#4 barisbalic           Enhance terminal output                                                0 comments
+#2 barisbalic           Check issue assignee                                                   0 comments
+#1 barisbalic           Add config subcommand                                                  0 comments
 ```
 
 
