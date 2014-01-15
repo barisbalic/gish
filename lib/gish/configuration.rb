@@ -49,7 +49,7 @@ module Gish
 
       puts "(step 1 of 2) Gish needs your login details to create a personal use token.  This only happens once and your credentials will not be stored."
       username = prompt('Username: ')
-      password = prompt('Password: ')
+      password = prompt('Password: ', masked: true)
 
       puts "(step 2 of 2) Gish works with public repositories by default, but if you want to use it with We are about to create a token, but first you need to decide if you want to use Gish with private repositories, we need to know now!"
       private_access = confirm("Use with private repositories? (y/n) ")

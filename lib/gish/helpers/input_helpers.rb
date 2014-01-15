@@ -1,10 +1,12 @@
 require 'securerandom'
+require 'io/console'
 
 module Gish
   module InputHelpers
-    def prompt(message)
+    def prompt(message, opts={})
       print message
-      STDIN.gets.chomp
+      input = opts[:masked] ? STDIN.noecho(&:gets) : STDIN.gets
+      input.chomp
     end
 
     def confirm(message)
