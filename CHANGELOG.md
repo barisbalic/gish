@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.9.5
+
+* Mask password input. Thanks to [malditogeek](https://github.com/malditogeek).
+
 ## 0.9.4
 
 * Edit command added, and assign command now checks to see if specified user is a collaborator. Both thanks to [despo](https://github.com/despo).
@@ -16,6 +20,6 @@
 
 * Added a [PR] tag for issues in the list screen.
 
-## 0.9.0 
+## 0.9.0
 
 * Initial release.
