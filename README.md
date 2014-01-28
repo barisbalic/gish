@@ -2,6 +2,9 @@
 
 Github Issues on the command-line.  Not much else to say about it.  Runs on OSX/*nix, any Windows compatibility is purely coincidental.
 
+Any questions? Join the conversation at [![Gitter](https://badges.gitter.im/barisbalic/gish.png)](https://gitter.im/barisbalic/gish)
+
+
 ## Installation
 
 ```bash
