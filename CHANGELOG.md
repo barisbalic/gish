@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.9.6
+
+* Prompt user for token instead of user/pass to support 2-factor auth users.  Thanks to [malditogeek](https://github.com/malditogeek).
+
 ## 0.9.5
 
 * Mask password input. Thanks to [malditogeek](https://github.com/malditogeek).
