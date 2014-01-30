@@ -11,7 +11,7 @@ Any questions? Join the conversation at [![Gitter](https://badges.gitter.im/bari
   $ gem install gish
 ```
 
-When you first use Gish you will be prompted for your github credentials, and asked if you would like to use Gish with private repositories.  This information is used to create a [personal access token](https://github.com/blog/1509-personal-api-tokens) for your Github account, this token will then be stored and used instead of your credentials.
+When you first use Gish you will be prompted for a [personal access token](https://github.com/blog/1509-personal-api-tokens), you can go directly to [applications](https://github.com/settings/applications) and create one.  Copy it immediately as you only get to see it once.
 
 You may also want to consider setting the environment variables `GISH_EDITOR` and `GISH_BROWSER`.  These will be used to launch an editor or browser respectively when the need arises.  When they are not set, Gish defaults to `EDITOR` and `BROWSER`, and finally `vi` and `open`.
 
